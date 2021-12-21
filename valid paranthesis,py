@@ -1,0 +1,22 @@
+class Solution:
+    def isValid(self, s: str) -> bool:
+        t=[]
+        x=0
+        a=['[','{','(']
+        b=[']','}',')']
+        for i in range(len(s)):
+            if s[i] in a:
+                t+=[a.index(s[i])]
+            else:
+                if len(t)==0:
+                    return 0
+                else:
+                    if t[-1]!=b.index(s[i]):
+                        x=1
+                        return 0
+                t.pop()
+        if len(t):
+            return 0
+        if x==0:
+            return 1
+                    
