@@ -1,0 +1,15 @@
+class Solution:
+    def arrayRankTransform(self, arr: List[int]) -> List[int]:
+        t=arr.copy()
+        dict={}
+        t.sort()
+        x=[]
+        ans=[]
+        ind=1
+        for i in t:
+            if i not in dict:
+                dict[i]=ind
+                ind+=1
+        for i in arr:
+            ans+=[dict[i]]
+        return ans
